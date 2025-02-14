@@ -22,7 +22,7 @@ ostream& operator<< (ostream& out, const LinkedList<Type>& list);
 template<class Type>
 class LinkedList{
     public:
-        LinkedList(): front(nullptr), back(nullptr), count(0) {}// Default constructor for the LinkedList.  Creates an empty list by setting front and back of the list to nulllptr
+        LinkedList(): front(nullptr), back(nullptr), cou(0) {}// Default constructor for the LinkedList.  Creates an empty list by setting front and back of the list to nulllptr
         //~LinkedList();           //Destructor for the LinkedList.  Creates an empty list by setting front and back of the list to nulllptr
         void insert(Type data);  //Adds to the back of the list
         Type peek(int ndx)const ;//Looks at an element at the given ndx value
@@ -33,7 +33,7 @@ class LinkedList{
         //Node<Type> *back;
         shared_ptr <Node<Type> > front;
         shared_ptr <Node<Type> > back;
-        int count;
+        int cou;
 
 
 
@@ -52,12 +52,12 @@ void LinkedList<Type>::insert(Type data){
         back->next = temp;
         back = temp;
     }
-    count++;
+    cou++;
 } 
 
 template<class Type>
 Type LinkedList<Type>::peek(int ndx)const{
-    if(ndx >= count || ndx < 0){
+    if(ndx >= cou || ndx < 0){
         throw runtime_error("Out of range");
     }
 
@@ -73,7 +73,7 @@ Type LinkedList<Type>::peek(int ndx)const{
 
 template<class Type>
 void LinkedList<Type>::remove(int ndx){
-   if(ndx >= count || ndx < 0){
+   if(ndx >= cou || ndx < 0){
         throw runtime_error("Out of range");
     }
 
@@ -99,7 +99,7 @@ void LinkedList<Type>::remove(int ndx){
         currentNode->next = nullptr;
         back = currentNode;
     }
-    count --;
+    cou --;
 
 
 }
